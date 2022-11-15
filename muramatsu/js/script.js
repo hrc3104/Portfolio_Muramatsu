@@ -1,3 +1,4 @@
+
 //---------メインテキストここから---------//
 function RollAnimeControl() {
     $('.rollAnime').each(function () {// rollAnimeにrollというクラス名を付ける定義
@@ -89,7 +90,6 @@ $(document).ready(function() {
 });
 });
 
-
 //水滴//
     $('#section1,#section2').ripples({
         resolution: 512,   //解像度
@@ -107,3 +107,50 @@ $(document).ready(function() {
     }, 100);
 });
 })
+//メインビジュアルテキスト
+// テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
+let Maintext = new Blotter.Text("HaruKa Muramatsu", {
+    family : "serif",
+    size : 120,
+    fill : "#FFF",
+});
+
+// 仕様するエフェクトを定義。
+let Mainmaterial = new Blotter.LiquidDistortMaterial();
+Mainmaterial.uniforms.uSpeed.value = 0.5;
+Mainmaterial.uniforms.uVolatility.value = 0.04;
+Mainmaterial.uniforms.uSeed.value = 6.02;
+
+// 設定したテキストとエフェクトをセット。
+let Mainblotter = new Blotter(Mainmaterial, { texts : Maintext });
+
+// ほぼおまじない。
+let Mainscope = Mainblotter.forText(Maintext);
+
+// 任意のDOMを用意
+let Maintarget = document.getElementById('data-blotter');
+Mainscope.appendTo(Maintarget);
+
+//About
+// テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
+let text = new Blotter.Text("About", {
+    family : "serif",
+    size : 80,
+    fill : "#FFF"
+});
+ 
+// 仕様するエフェクトを定義。
+let material = new Blotter.LiquidDistortMaterial();
+material.uniforms.uSpeed.value = 0.6;
+material.uniforms.uVolatility.value = 0.05;
+material.uniforms.uSeed.value = 6.02;
+ 
+// 設定したテキストとエフェクトをセット。
+let blotter = new Blotter(material, { texts : text });
+ 
+// ほぼおまじない。
+let scope = blotter.forText(text);
+ 
+// 任意のDOMを用意
+let target = document.getElementById('about-title');
+scope.appendTo(target);

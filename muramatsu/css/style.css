@@ -136,13 +136,7 @@ a:hover span {
   .box{
     background-color: #FFF;
   }
-  #section1 h1,
-#section2 h1,
-#section3 h1{
-	color: #fff;
-	font-size: 30px;
-	font-weight: normal !important;
-}
+ 
 #section2 img,
 #section3 img{
 	width: 100%;
@@ -513,6 +507,7 @@ h2{
   100% { transform: rotate( 360deg ); }
 }
 /*ABOUT*/
+
 .about-wrapper{
   display: flex;
   margin-top: 3rem;
