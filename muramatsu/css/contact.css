@@ -1,0 +1,207 @@
+/*========= 共通 ===============*/
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Koga Sans Modern Trial', sans-serif;
+    src:
+    url('KogaSansModernTrial-Medium.otf') format('opentype'),
+}
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+/*========= header ===============*/
+.header_wrap{
+    display: flex;
+    justify-content: space-between;
+    height: 128px;
+    line-height: 128px;
+}
+
+ul{
+    display: flex;
+}
+
+a,
+body{
+    line-height: 1.5;
+    font-family: 'Koga Sans Modern Trial', sans-serif;
+}
+
+.button-link{
+    margin-right: 30px;
+    letter-spacing: 0.1em;
+}
+
+/*========= nav ===============*/
+#menu{
+    display: flex;
+    justify-content: space-between;
+}
+
+#menu　li a:hover{
+    color: #FFF;
+    background-color: #333c5E;
+}
+
+nav ul{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+nav ul li a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+a::before,a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+a::before {
+    background-color: #333c5E;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #333c5E;
+    font-family: 'Koga Sans Modern Trial', sans-serif;
+}
+
+a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+
+a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
+/*========= cursor ===============*/
+html,
+body,
+a {
+    cursor: none;
+}
+
+.cursor {
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(25, 114, 113, 0.5);
+    z-index: 1000;
+    transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+    transform: translate(0, 0);
+    pointer-events: none;
+}
+
+.cursor.cursor--hover {
+    top: -20px;
+    left: -20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(63, 135, 186, 0.5);
+}
+/*========= 共通ここまで ===============*/
+
+/*========= contact ===============*/
+
+.fixed-background {
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.background-1 {
+    background-image: url(../img/AdobeStock_275914920.jpeg);
+    position: relative;
+}
+
+.scroll-background{
+    height: 100vh;
+    background-color: rgba(120, 110, 60.0.1);
+    margin: 50px auto;
+    width: 50%;
+}
+dd:not(:nth-child(2),:nth-child(8)){
+    border-bottom: 1px solid #000;
+    margin: 20px 0px;
+
+}
+
+dd:nth-child(2){
+    justify-content: space-between;
+    display: flex;
+    margin: 20px 0;
+}
+
+input[type="radio"]:hover+label, input[type="radio"]:checked+label {
+    color: #e7e7e7;
+    background-color: #555;
+    opacity: 0.8;
+}
+dd label{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    border: 1px solid;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+.active {
+    color: red;
+}
+
+input{
+    width: 100%;
+}
+textarea{
+    border: 1px solid #000;
+}
+h2{
+    font-size:80px;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+  }
+  

@@ -1,0 +1,571 @@
+@charset "UTF-8";
+
+/*共通パーツ*/
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Koga Sans Modern Trial', sans-serif;
+  src:
+    url('KogaSansModernTrial-Medium.otf') format('opentype'),
+}
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+/*ヘッダー*/
+.header_wrap{
+    display: flex;
+    justify-content: space-between;
+    height: 128px;
+    line-height: 128px;
+}
+ul{
+    display: flex;
+}
+a,
+body{
+  line-height: 1.5;
+  font-family: 'Koga Sans Modern Trial', sans-serif;
+}
+
+.button-link{
+    margin-right: 30px;
+    letter-spacing: 0.1em;
+}
+p{
+  font-size: 1rem;
+}
+/*logo*/
+
+/*nav*/
+#menu{
+  display: flex;
+  justify-content: space-between;
+}
+#menu　li a:hover{
+  color: #FFF;
+  background-color: #333c5E;
+}
+nav ul{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+nav ul li a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+a::before,
+a::after {
+ content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+a::before {
+  background-color: #43676b;;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: #43676b;
+  font-family: 'Koga Sans Modern Trial', sans-serif;
+
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+
+}
+
+/* Presentational Styles */
+/*mv*/
+
+  h1{
+    position: absolute;
+    top: 10%;
+  }
+  .scroll{
+    position: absolute;
+    top: 30px;
+  }
+
+  /*NEWS*/
+  .news-wrapper{
+    display: flex;
+  }
+  .news-item{
+    display: block;
+  }
+  .news-item img{
+    width: 300px;
+    height: 200px;
+  }
+  .box{
+    background-color: #FFF;
+  }
+  #section1 h1,
+#section2 h1,
+#section3 h1{
+	color: #fff;
+	font-size: 30px;
+	font-weight: normal !important;
+}
+#section2 img,
+#section3 img{
+	width: 100%;
+	border: solid 5px #fff;
+}
+#section1 img{
+  width: 100%;
+  margin: 0;
+}
+
+/*スクロール*/
+/*スクロールダウン全体の場所*/
+.scrolldown2{
+  position:absolute;
+  bottom:10px;
+  left:50%;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span{
+  position: absolute;
+  left:10px;
+  bottom:10px;
+  color: #eee;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+  content: "";
+  position: absolute;
+  bottom:0;
+  left:-4px;
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background:#eee;
+  animation:
+  circlemove 1.6s ease-in-out infinite,
+  cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+    0%{bottom:45px;}
+    100%{bottom:-5px;}
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+    0%{opacity:0}
+    50%{opacity:1;}
+    80%{opacity:0.9;}
+    100%{opacity:0;}
+}
+
+/* 線の描写 */
+.scrolldown2:after{
+  content:"";
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:2px;
+  height: 50px;
+  background:#eee;
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+
+section{
+  position: relative;
+  background:#FFF;
+  padding:600px 0;
+  text-align: center;
+}
+
+
+@media screen and (max-width:768px){
+
+  #header,
+  #header:before{
+  height: 90vh;    
+  }
+  
+}
+
+/*デフォルトのマウスカーソルを非表示にする*/
+html,
+body,
+a {
+  cursor: none;
+}
+
+/*独自のマウスカーソルを作成*/
+.cursor {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(25, 114, 113, 0.5);
+  z-index: 1000;
+  transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+  transform: translate(0, 0);
+  pointer-events: none;
+}
+
+/*aタグにホバーした時に見た目変化*/
+.cursor.cursor--hover {
+  top: -20px;
+  left: -20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(63, 135, 186, 0.5);
+}
+
+/*ローディングアニメーション*/
+#loader {
+  position:absolute;
+  width:600px;
+  height:36px;
+  left:50%;
+  top:40%;
+  margin-left:-300px;
+  overflow:visible;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  cursor:default;
+}
+
+#loader div {
+  position:absolute;
+  width:20px;
+  height:36px;
+  opacity:0;
+  font-family:Helvetica, Arial, sans-serif;
+  animation:move 2s linear infinite;
+  -o-animation:move 2s linear infinite;
+  -moz-animation:move 2s linear infinite;
+  -webkit-animation:move 2s linear infinite;
+  transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  color:#35C4F0;
+}
+
+#loader div:nth-child(2) {
+  animation-delay:0.2s;
+  -o-animation-delay:0.2s;
+  -moz-animation-delay:0.2s;
+  -webkit-animation-delay:0.2s;
+}
+#loader div:nth-child(3) {
+  animation-delay:0.4s;
+  -o-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+  -webkit-animation-delay:0.4s;
+}
+#loader div:nth-child(4) {
+  animation-delay:0.6s;
+  -o-animation-delay:0.6s;
+  -moz-animation-delay:0.6s;
+  -webkit-animation-delay:0.6s;
+}
+#loader div:nth-child(5) {
+  animation-delay:0.8s;
+  -o-animation-delay:0.8s;
+  -moz-animation-delay:0.8s;
+  -webkit-animation-delay:0.8s;
+}
+#loader div:nth-child(6) {
+  animation-delay:1s;
+  -o-animation-delay:1s;
+  -moz-animation-delay:1s;
+  -webkit-animation-delay:1s;
+}
+#loader div:nth-child(7) {
+  animation-delay:1.2s;
+  -o-animation-delay:1.2s;
+  -moz-animation-delay:1.2s;
+  -webkit-animation-delay:1.2s;
+}
+
+@keyframes move {
+  0% {
+    left:0;
+    opacity:0;
+  }
+  35% {
+    left: 41%; 
+    -moz-transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -o-transform:rotate(0deg);
+    transform:rotate(0deg);
+    opacity:1;
+  }
+  65% {
+    left:59%; 
+    -moz-transform:rotate(0deg); 
+    -webkit-transform:rotate(0deg); 
+    -o-transform:rotate(0deg);
+    transform:rotate(0deg); 
+    opacity:1;
+  }
+  100% {
+    left:100%; 
+    -moz-transform:rotate(-180deg); 
+    -webkit-transform:rotate(-180deg); 
+    -o-transform:rotate(-180deg); 
+    transform:rotate(-180deg);
+    opacity:0;
+  }
+}
+
+@-moz-keyframes move {
+  0% {
+    left:0; 
+    opacity:0;
+  }
+  35% {
+    left:41%; 
+    -moz-transform:rotate(0deg); 
+    transform:rotate(0deg);
+    opacity:1;
+  }
+  65% {
+    left:59%; 
+    -moz-transform:rotate(0deg); 
+    transform:rotate(0deg);
+    opacity:1;
+  }
+  100% {
+    left:100%; 
+    -moz-transform:rotate(-180deg); 
+    transform:rotate(-180deg);
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes move {
+  0% {
+    left:0; 
+    opacity:0;
+  }
+  35% {
+    left:41%; 
+    -webkit-transform:rotate(0deg); 
+    transform:rotate(0deg); 
+    opacity:1;
+  }
+  65% {
+    left:59%; 
+    -webkit-transform:rotate(0deg); 
+    transform:rotate(0deg); 
+    opacity:1;
+  }
+  100% {
+    left:100%;
+    -webkit-transform:rotate(-180deg); 
+    transform:rotate(-180deg); 
+    opacity:0;
+  }
+}
+
+@-o-keyframes move {
+  0% {
+    left:0; 
+    opacity:0;
+  }
+  35% {
+    left:41%; 
+    -o-transform:rotate(0deg); 
+    transform:rotate(0deg); 
+    opacity:1;
+  }
+  65% {
+    left:59%; 
+    -o-transform:rotate(0deg); 
+    transform:rotate(0deg); 
+    opacity:1;
+  }
+  100% {
+    left:100%; 
+    -o-transform:rotate(-180deg); 
+    transform:rotate(-180deg); 
+    opacity:0;
+  }
+}
+/*ローディングアニメーションここまで*/
+
+
+/*メインビジュアル*/
+#section1{
+  width: 100%;
+  height: 100vh;
+  background: url("../img/AdobeStock_275913509.jpeg");
+  background-size: cover;
+  /* position: relative; */
+  position: absolute;
+}
+h2{
+  font-size:100px;
+  font-family: 'Koga Sans Modern Trial', sans-serif;
+  src:
+    url('KogaSansModernTrial-Medium.otf') format('opentype'),
+}
+
+/*contact*/
+.fixed-background {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-1 {
+  background-image: url(../img/AdobeStock_275913509.jpeg);
+}
+
+.rollAnime.roll span {
+  transition-property: opacity,transform;
+  transform: rotateY(360deg);
+  transition: all .8s cubic-bezier(.77,0,.175,1);
+  transition-timing-function: cubic-bezier(.77,0,.175,1);
+  display: inline-block;
+  color: #43676b;  
+}
+
+/*ローディング*/
+.loading {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+.loading.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms;
+}
+.loading img {
+  display: block;
+  position: relative;
+  top: calc( 50% - 20px );
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 8px solid #e0e0e0;
+  border-top: 7px solid #ffcccc;
+  border-radius: 50px;
+  animation: loading 700ms linear 0ms infinite normal both;
+}
+@keyframes loading {
+  0% { transform: rotate( 0deg ); }
+  100% { transform: rotate( 360deg ); }
+}
+/*ABOUT*/
+.about-wrapper{
+  display: flex;
+  margin-top: 3rem;
+}
+.about-wrapper figure{
+  width: 45%;
+}
+.about-text{
+  width: 55%;
+  margin: 3rem;
+  letter-spacing: 0.18em;
+  color: #FFF;
+  line-height: 2em;
+}
+.about-button-wrapper{
+  text-align: right;
+}
+#section2{
+  padding: 2rem 5rem;
+}
+.about-button {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  z-index: 0;
+  background: #FFF;
+  overflow: hidden;
+  border: 2px solid #FFF;
+  color: #326C6D;
+  text-align: center;
+}
+.about-button:hover {
+  color: #fff;
+}
+.about-button:hover:after {
+  width: 100%;
+}
+.about-button:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.3s ease;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: #326C6D;
+}
