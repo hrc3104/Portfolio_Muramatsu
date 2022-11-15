@@ -137,8 +137,7 @@ a:hover span {
     background-color: #FFF;
   }
  
-#section2 img,
-#section3 img{
+#section2 img{
 	width: 100%;
 	border: solid 5px #fff;
 }
@@ -563,4 +562,9 @@ h2{
   width: 0;
   height: 100%;
   background: #326C6D;
+}
+/*Work*/
+.work-img{
+  width: 70%;
+  height: 60%;
 }
