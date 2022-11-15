@@ -154,3 +154,27 @@ let scope = blotter.forText(text);
 // 任意のDOMを用意
 let target = document.getElementById('about-title');
 scope.appendTo(target);
+
+//Work
+// テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
+let Worktext = new Blotter.Text("Works", {
+    family : "serif",
+    size : 80,
+    fill : "#FFF"
+});
+ 
+// 仕様するエフェクトを定義。
+let Workmaterial = new Blotter.LiquidDistortMaterial();
+Workmaterial.uniforms.uSpeed.value = 0.6;
+Workmaterial.uniforms.uVolatility.value = 0.05;
+Workmaterial.uniforms.uSeed.value = 6.02;
+ 
+// 設定したテキストとエフェクトをセット。
+let Workblotter = new Blotter(Workmaterial, { texts : Worktext });
+ 
+// ほぼおまじない。
+let Workscope = Workblotter.forText(Worktext);
+ 
+// 任意のDOMを用意
+let Worktarget = document.getElementById('work-title');
+Workscope.appendTo(Worktarget);
