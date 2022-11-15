@@ -69,7 +69,7 @@ for (var i = 0; i < link.length; i++) {
 //---------ローティングここから---------//
 const loading = document.querySelector( '.loading' );
 window.addEventListener( 'load', () => {
-    oading.classList.add( 'hide' );
+    loading.classList.add( 'hide' );
 }, false );
 
 //---------スクロールここから---------//
