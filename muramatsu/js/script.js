@@ -1,4 +1,3 @@
-
 //---------メインテキストここから---------//
 function RollAnimeControl() {
     $('.rollAnime').each(function () {// rollAnimeにrollというクラス名を付ける定義
@@ -67,15 +66,11 @@ for (var i = 0; i < link.length; i++) {
     });
 }
 
-
-  //---------ローティングここから---------//
-  const loading = document.querySelector( '.loading' );
- 
-  window.addEventListener( 'load', () => {
-    loading.classList.add( 'hide' );
-  }, false );
-
-
+//---------ローティングここから---------//
+const loading = document.querySelector( '.loading' );
+window.addEventListener( 'load', () => {
+    oading.classList.add( 'hide' );
+}, false );
 
 //---------スクロールここから---------//
 $(document).ready(function() {
@@ -90,13 +85,14 @@ $(document).ready(function() {
 });
 });
 
-//水滴//
+//---------水滴ここから---------//
     $('#section1,#section2').ripples({
         resolution: 512,   //解像度
         dropRadius: 20,    //ドロップサイズ
         perturbance: 0.04, //屈折量
     });
-//スクロールcontact
+
+//---------Contactスクロールここから---------//
 (function ($) {
     'use strict';
     let scrollPosi = 0;
@@ -107,74 +103,63 @@ $(document).ready(function() {
     }, 100);
 });
 })
-//メインビジュアルテキスト
+
+//---------メインビジュアルテキストここから---------//
 // テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
 let Maintext = new Blotter.Text("HaruKa Muramatsu", {
     family : "serif",
     size : 120,
     fill : "#FFF",
 });
-
 // 仕様するエフェクトを定義。
 let Mainmaterial = new Blotter.LiquidDistortMaterial();
 Mainmaterial.uniforms.uSpeed.value = 0.5;
 Mainmaterial.uniforms.uVolatility.value = 0.04;
 Mainmaterial.uniforms.uSeed.value = 6.02;
-
 // 設定したテキストとエフェクトをセット。
 let Mainblotter = new Blotter(Mainmaterial, { texts : Maintext });
-
 // ほぼおまじない。
 let Mainscope = Mainblotter.forText(Maintext);
-
 // 任意のDOMを用意
 let Maintarget = document.getElementById('data-blotter');
 Mainscope.appendTo(Maintarget);
 
-//About
+//---------Aboutテキストここから---------//
 // テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
 let text = new Blotter.Text("About", {
     family : "serif",
     size : 80,
     fill : "#FFF"
 });
- 
 // 仕様するエフェクトを定義。
 let material = new Blotter.LiquidDistortMaterial();
 material.uniforms.uSpeed.value = 0.6;
 material.uniforms.uVolatility.value = 0.05;
 material.uniforms.uSeed.value = 6.02;
- 
 // 設定したテキストとエフェクトをセット。
 let blotter = new Blotter(material, { texts : text });
- 
 // ほぼおまじない。
 let scope = blotter.forText(text);
- 
 // 任意のDOMを用意
 let target = document.getElementById('about-title');
 scope.appendTo(target);
 
-//Work
+//---------Workテキストここから---------//
 // テキストの設定です。詳細なプロパティは公式のドキュメントにあります。
 let Worktext = new Blotter.Text("Works", {
     family : "serif",
     size : 80,
     fill : "#FFF"
 });
- 
 // 仕様するエフェクトを定義。
 let Workmaterial = new Blotter.LiquidDistortMaterial();
 Workmaterial.uniforms.uSpeed.value = 0.6;
 Workmaterial.uniforms.uVolatility.value = 0.05;
 Workmaterial.uniforms.uSeed.value = 6.02;
- 
 // 設定したテキストとエフェクトをセット。
 let Workblotter = new Blotter(Workmaterial, { texts : Worktext });
- 
 // ほぼおまじない。
 let Workscope = Workblotter.forText(Worktext);
- 
 // 任意のDOMを用意
 let Worktarget = document.getElementById('work-title');
 Workscope.appendTo(Worktarget);
