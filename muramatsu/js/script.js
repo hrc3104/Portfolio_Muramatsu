@@ -161,5 +161,5 @@ let Workblotter = new Blotter(Workmaterial, { texts : Worktext });
 // ほぼおまじない。
 let Workscope = Workblotter.forText(Worktext);
 // 任意のDOMを用意
-let Worktarget = document.getElementById('work-title');
+let Worktarget = document.getElementById('works-title');
 Workscope.appendTo(Worktarget);

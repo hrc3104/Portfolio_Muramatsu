@@ -139,7 +139,7 @@ a:hover span {
  
 #section2 img{
 	width: 100%;
-	border: solid 5px #fff;
+	border: solid 2px #fff;
 }
 #section1 img{
   width: 100%;
@@ -505,26 +505,27 @@ h2{
   0% { transform: rotate( 0deg ); }
   100% { transform: rotate( 360deg ); }
 }
-/*ABOUT*/
+/*トップページABOUT*/
 
-.about-wrapper{
+.about-wrapper,.works-wrapper{
   display: flex;
   margin-top: 3rem;
 }
 .about-wrapper figure{
   width: 45%;
 }
-.about-text{
+.about-text,.works-text{
   width: 55%;
-  margin: 3rem;
+  margin: 3rem 3rem 3rem 4rem;
   letter-spacing: 0.18em;
   color: #FFF;
   line-height: 2em;
 }
-.about-button-wrapper{
+.about-button-wrapper,.works-button-wrapper{
   text-align: right;
+  margin: 2rem 2rem 0 0;
 }
-#section2{
+#section2,#section3{
   padding: 2rem 5rem;
 }
 .about-button {
@@ -563,8 +564,37 @@ h2{
   height: 100%;
   background: #326C6D;
 }
+/*About詳細ページ*/
+#about{
+  background-color:gray;
+  overflow:hidden;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background-color: #ccc;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #17585d;
+}
+
+.fadein {
+  opacity : 0;
+  transform : translate(0, 80px);
+  transition:all 1.8s;
+}
+ 
+.fadein.scrollin {
+  opacity : 1;
+  transform : translate(0, 0);
+}
+
 /*Work*/
 .work-img{
-  width: 70%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
+}
+.works-wrapper figure{
+  width: 100%;
 }
