@@ -28,10 +28,8 @@ $reason = implode('/', $_POST['reason']);
       <input type="hidden" name="fullname" value="<?php echo htmlspecialchars($fullname,ENT_QUOTES,"UTF-8"); ?>">
       <input type="hidden" name="email" value="<?php echo htmlspecialchars($email,ENT_QUOTES,"UTF-8"); ?>">
       <input type="hidden" name="content" value="<?php echo htmlspecialchars($content,ENT_QUOTES,"UTF-8"); ?>">
-      <input type="hidden" name="reason[]" value="<?php echo htmlspecialchars($reason,ENT_QUOTES,"UTF-8"); ?>">
       <dl>
-        <dt>お問い合わせ理由</dt>
-        <dd><?php echo htmlspecialchars($reason,ENT_QUOTES,"UTF-8"); ?></dd>
+        
         <dt>お名前</dt>
         <dd><?php echo htmlspecialchars($fullname,ENT_QUOTES,"UTF-8"); ?></dd>
         <dt>メールアドレス</dt>
@@ -39,8 +37,10 @@ $reason = implode('/', $_POST['reason']);
         <dt>お問い合わせ内容</dt>
         <dd><?php echo htmlspecialchars($content,ENT_QUOTES,"UTF-8"); ?></dd>
       </dl>
+      <div class="complete-button">
       <input type="button" value="戻る" onClick="history.back()">
       <input type="submit" value="送信">
+    </div>
     </form>
   </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

@@ -1,16 +1,15 @@
 //---------フェードインここから---------//
-$(function(){
-    $(window).scroll(function (){
-        $('.about-button-wrapper').each(function(){
-            console.log("123");
+$(function () {
+    $(window).scroll(function () {
+        $('.about-button-wrapper').each(function () {
             var elementTop = $(this).offset().top;//about-button-wrapper要素の位置取得
             var scroll = $(window).scrollTop();//どのくらいスクロールされたか取得
             var windowHeight = $(window).height();//ウィンドウの高さ取得
-        if (scroll > elementTop - windowHeight + 200){//がスクロール位置が(要素位置-ウィンドウ高さ+100)より大きければ
-            $(this).addClass('scroll_in');//クラス追加する
-        }
+            if (scroll > elementTop - windowHeight + 200) {//がスクロール位置が(要素位置-ウィンドウ高さ+100)より大きければ
+                $(this).addClass('scroll_in');//クラス追加する
+            }
+        });
     });
-});
 });
 
 //---------カーソルここから---------//
@@ -68,9 +67,9 @@ $('#section1,#section2').ripples({
 })
 
 //---------メインビジュアルテキストここから---------//
-let Maintext = new Blotter.Text("HaruKa Muramatsu", {
-    family: "serif",
-    size: 120,
+let Maintext = new Blotter.Text("Muramatsu Haruka", {
+    family: "Antiqua Roman",
+    size: 150,
     fill: "#FFF",
 });
 // 仕様するエフェクトを定義。
@@ -80,7 +79,6 @@ Mainmaterial.uniforms.uVolatility.value = 0.04;
 Mainmaterial.uniforms.uSeed.value = 6.02;
 // 設定したテキストとエフェクトをセット。
 let Mainblotter = new Blotter(Mainmaterial, { texts: Maintext });
-// ほぼおまじない。
 let Mainscope = Mainblotter.forText(Maintext);
 // 任意のDOMを用意
 let Maintarget = document.getElementById('data-blotter');
@@ -99,13 +97,13 @@ material.uniforms.uVolatility.value = 0.05;
 material.uniforms.uSeed.value = 6.02;
 // 設定したテキストとエフェクトをセット。
 let blotter = new Blotter(material, { texts: text });
-// ほぼおまじない。
 let scope = blotter.forText(text);
 // 任意のDOMを用意
 let target = document.getElementById('about-title');
 scope.appendTo(target);
 
 //---------Workテキストここから---------//
+document.addEventListener("DOMContentLoaded", function() {
 let Worktext = new Blotter.Text("Works", {
     family: "serif",
     size: 80,
@@ -118,9 +116,9 @@ Workmaterial.uniforms.uVolatility.value = 0.05;
 Workmaterial.uniforms.uSeed.value = 6.02;
 // 設定したテキストとエフェクトをセット。
 let Workblotter = new Blotter(Workmaterial, { texts: Worktext });
-// ほぼおまじない。
 let Workscope = Workblotter.forText(Worktext);
 // 任意のDOMを用意
 let Worktarget = document.getElementById('works-title');
 Workscope.appendTo(Worktarget);
+});
 
